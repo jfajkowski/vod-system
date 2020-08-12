@@ -1,7 +1,7 @@
 INPUT=$1
 OUTPUT=$2
 
-echo "Transcoding ${INPUT} -> ${OUTPUT}"
+echo "Transcoding started ${INPUT} -> ${OUTPUT}"
 mkdir -p $(dirname ${OUTPUT})
 ffmpeg -y -rw_timeout 5000000 -i ${INPUT} \
     -c:v libx264 \
@@ -15,3 +15,4 @@ ffmpeg -y -rw_timeout 5000000 -i ${INPUT} \
     -map 0:a:0 \
     -use_timeline 1 -use_template 1 -adaptation_sets "id=0,streams=v id=1,streams=a" \
     -f dash ${OUTPUT} || rm -r $(dirname ${OUTPUT});
+echo "Transcoding completed ${INPUT} -> ${OUTPUT}"
