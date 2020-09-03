@@ -1,0 +1,28 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: vod-sc
+provisioner: kubernetes.io/gce-pd
+reclaimPolicy: Retain
+parameters:
+  type: pd-standard
+  fstype: ext4
+  replication-type: none
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vod-pv
+spec:
+  storageClassName: vod-sc
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadOnlyMany
+  claimRef:
+    namespace: default
+    name: vod-pvc
+  gcePersistentDisk:
+    pdName: vod-disk
+    fsType: ext4
+    readOnly: true

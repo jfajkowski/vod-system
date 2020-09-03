@@ -1,0 +1,15 @@
+apiVersion: skaffold/v2beta6
+kind: Config
+metadata:
+  name: vod-system
+build:
+  artifacts:
+    - image: streaming-node
+      context: streaming-node
+  tagPolicy:
+    sha256: {}
+deploy:
+  kubectl:
+    manifests:
+      - pv-cloud.yaml
+      - deployment.yaml

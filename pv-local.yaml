@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: vod-pv
+  labels:
+    type: local
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadOnlyMany
+  claimRef:
+    namespace: default
+    name: vod-pvc
+  hostPath:
+    path: "/run/desktop/mnt/host/wsl/data"

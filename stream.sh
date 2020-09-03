@@ -1,1 +1,0 @@
-ffmpeg -re -i data/source/madmaxfuryroad-tlr1_h1080p.mov -vcodec copy -loop -1 -c:a aac -b:a 160k -ar 44100 -strict -2 -f flv rtmp://127.0.0.1/live/bbb

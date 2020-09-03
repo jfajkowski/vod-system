@@ -1,14 +1,13 @@
 apiVersion: v1
-kind: Service
+kind: PersistentVolumeClaim
 metadata:
-  name: streaming-service
+  name: vod-pvc
 spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    targetPort: 80
-  selector:
-    app: streaming-node
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 10Gi
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -18,7 +17,7 @@ spec:
   selector:
     matchLabels:
       app: streaming-node
-  replicas: 2
+  replicas: 7
   template:
     metadata:
       labels:
@@ -33,55 +32,25 @@ spec:
         resources:
             limits:
               memory: 256Mi
-              cpu: 500m
+              cpu: 150m
         volumeMounts:
           - mountPath: "/data"
             name: vod-volume
+            readOnly: true
       volumes:
         - name: vod-volume
-          hostPath:
-              path: "/run/desktop/mnt/host/wsl/data"
+          persistentVolumeClaim:
+            claimName: vod-pvc
+            readOnly: true
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: transcoding-service
+  name: streaming-service
 spec:
   type: LoadBalancer
   ports:
-  - port: 1935
-    targetPort: 1935
+  - port: 80
+    targetPort: 80
   selector:
-    app: transcoding-node
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: transcoding-deployment
-spec:
-  selector:
-    matchLabels:
-      app: transcoding-node
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: transcoding-node
-    spec:
-      containers:
-      - name: transcoding-node
-        image: transcoding-node:latest
-        imagePullPolicy: IfNotPresent
-        ports:
-        - containerPort: 1935
-        resources:
-            limits:
-              memory: 4Gi
-              cpu: 6000m
-        volumeMounts:
-          - mountPath: "/data"
-            name: vod-volume
-      volumes:
-        - name: vod-volume
-          hostPath:
-              path: "/run/desktop/mnt/host/wsl/data"
+    app: streaming-node

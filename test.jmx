@@ -1,0 +1,497 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.3">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="VOD stress test" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Users" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">16</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="Random Controller" enabled="true">
+          <intProp name="InterleaveControl.style">1</intProp>
+        </RandomController>
+        <hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.1625</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="avengersageofultron-tlr2_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/avengersageofultron-tlr2_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="batmanvssuperman-us-tlr4_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/batmanvssuperman-us-tlr4_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="fantasticfour-tlr2_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/fantasticfour-tlr2_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="furious7-tlr5_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/furious7-tlr5_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.4375</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="heavenknowswhat-tlr1_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/heavenknowswhat-tlr1_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="inception-tlr3_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/inception-tlr3_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.025</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="jurassicworld-tlr2_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/jurassicworld-tlr2_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0375</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="madmaxfuryroad-tlr1_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/madmaxfuryroad-tlr1_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.075</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="maggie-tlr1_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/maggie-tlr1_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="missionimpossibleroguenation-tlr2_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/missionimpossibleroguenation-tlr2_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="poltergeist-tlr1_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/poltergeist-tlr1_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.075</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="sanandres-tlr3_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/sanandres-tlr3_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.075</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="swepvii-tlr2_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/swepvii-tlr2_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.0125</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="thelittledeath-tlr1_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/thelittledeath-tlr1_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+          <ThroughputController guiclass="ThroughputControllerGui" testclass="ThroughputController" testname="Throughput Controller" enabled="true">
+            <intProp name="ThroughputController.style">1</intProp>
+            <boolProp name="ThroughputController.perThread">true</boolProp>
+            <intProp name="ThroughputController.maxThroughput">1</intProp>
+            <FloatProperty>
+              <name>ThroughputController.percentThroughput</name>
+              <value>0.025</value>
+              <savedValue>0.0</savedValue>
+            </FloatProperty>
+          </ThroughputController>
+          <hashTree>
+            <com.blazemeter.jmeter.hls.logic.HlsSampler guiclass="com.blazemeter.jmeter.hls.gui.HlsSamplerGui" testclass="com.blazemeter.jmeter.hls.logic.HlsSampler" testname="tomorrowland-tlr3_h1080p" enabled="true">
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments"/>
+              </elementProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <stringProp name="HLS.URL_DATA">http://${ADDRESS}/dash/tomorrowland-tlr3_h1080p/dash.mpd</stringProp>
+              <boolProp name="HLS.DURATION">false</boolProp>
+              <stringProp name="HLS.SECONDS_DATA"></stringProp>
+              <stringProp name="HLS.AUDIO_LANGUAGE"></stringProp>
+              <stringProp name="HLS.SUBTITLE_LANGUAGE"></stringProp>
+              <stringProp name="HLS.BANDWIDTH_TYPE">maxBandwidth</stringProp>
+              <stringProp name="HLS.NET_DATA"></stringProp>
+              <stringProp name="HLS.RESOLUTION_TYPE">maxResolution</stringProp>
+              <stringProp name="HLS.RES_DATA"></stringProp>
+              <boolProp name="HLS.RESUME_DOWNLOAD">false</boolProp>
+            </com.blazemeter.jmeter.hls.logic.HlsSampler>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="ADDRESS" elementType="Argument">
+            <stringProp name="Argument.name">ADDRESS</stringProp>
+            <stringProp name="Argument.value">35.228.243.8</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
